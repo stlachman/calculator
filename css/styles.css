@@ -1,4 +1,56 @@
-.calculator {
-  display: grid;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.wrapper {
+  /* display: grid; */
+  
   background: #eee;
+  max-width: 500px;
+  margin: 0 auto;
+  /* grid-template-columns: 120px 120px 120px;
+  grid-template-areas: "header header header"; */
 } 
+
+.top__bar {
+  background: #000000;
+  color: #f2f2f2;
+  grid-area: header;
+  padding: 20px;
+  text-align: right;
+}
+
+.number {
+  font-size: 1.5rem;
+}
+.clear {
+  display: grid;
+  padding: 20px;
+}
+
+.clear div {
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.calc  {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.operators {
+  display: grid;
+}
+
+
+.numbers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.numbers div,
+.operators div {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
