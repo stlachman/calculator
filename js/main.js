@@ -1,24 +1,28 @@
-var numbers = [].slice.call(document.querySelectorAll(".numbers div"));
+var values = [].slice.call(document.querySelectorAll(".calc div div"));
 
-for (var i = 0; i < numbers.length; i++) {
-  numbers[i].addEventListener("click",  getValue);
+for (var i = 0; i < values.length; i++) {
+  values[i].addEventListener("click",  getValue);
 }
 
-// function init() {
-//   init.called = true;
-// }
+function init() {
+  init.called = true;
+}
 
+var storedNumber = [];
 
 function getValue(e) {
-  var value = e.target.innerText;
-  updateBar(value)
+    console.log(e.target.dataset.type)
+//   var value = e.target.innerText;
+//   updateBar(value)
 }
 
 function updateBar(value) {
   var numberField = document.querySelector(".number");
-  if  (numberField.innerText === '0')  {
+  if  (value.dataset.type === '0')  {
     numberField.innerText = value;
-  } else {
+ } else if (init.called) {
+    numberField.innerText = '0';
+ } else {
     numberField.innerText += value; 
   } 
 }
@@ -31,12 +35,14 @@ for (var i = 0; i < operators.length; i++) {
 
 function getOperator(e) {
   var currentValue = document.querySelector(".number").innerText;
-  console.log(currentValue);
-  var operation = e.target.className;
-  // init();
-  switch (operation) {
-   case "divide":
   
+  storedNumber.push(currentValue);
+  console.log(storedNumber);
+//   console.log(currentValue);
+  var operator = e.target.dataset.operation;
+  init();
+  switch (operator) {
+   case "divide":
    console.log("divide");
    break;
    case "multiply":
